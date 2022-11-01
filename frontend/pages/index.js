@@ -93,7 +93,7 @@ export default function Home() {
       if (joinedWhitelist) {
         return (
           <div className={styles.description}>
-            ¡Gracias por unirte a la Whitelist!
+            ¡Gracias por unirte! Pronto tendrás más noticias 🔜
           </div>
         );
       } else if (loading) {
@@ -113,6 +113,16 @@ export default function Home() {
       );
     }
   };
+
+  const renderJoinedCount = () => {
+    if (walletConnected) {
+      return (
+        <div className={styles.description}>
+          {numberOfWhitelisted}/4 personas ya se han unido a la Whitelist.
+        </div>
+      );
+    }
+  }
 
   useEffect(() => {
     if (!walletConnected) {
@@ -139,11 +149,9 @@ export default function Home() {
             BuenaChica 🐶 es una colección de NFTs que hace referencia
             a una gran mascota y que es símbolo de una gran amistad.
             Los holders de estos NFTs podrán participar en nuestra próxima ICO
-            y en las votaciones de la DAO llamada voDkAO
+            y en las votaciones de la DAO llamada voDkAO.
           </div>
-          <div className={styles.description}>
-            {numberOfWhitelisted} personas ya se han unido a la Whitelist
-          </div>
+          {renderJoinedCount()}
           {renderButton()}
         </div>
         <div className={styles.picture}>
