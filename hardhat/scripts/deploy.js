@@ -8,7 +8,6 @@ async function main() {
     await deployedWhitelistContract.deployed();
 
     console.log("Whitelist Contract Address:", deployedWhitelistContract.address);
-    //0xe28EA7ee81dCA245770ffcBEa50DaAc38A1a8B0B
 }
 
 main()
